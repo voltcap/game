@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Roman Coin Kiosk</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Left Panel: Annotations -->
+      <div id="annotations-panel" class="panel left-panel">
+        <div class="header-info">
+          <h1 class="main-title">Unfolding the Kapulukaya Hoard</h1>
+          <p class="subtitle">Consular Solidus Valentinian II (372-392 AD)</p>
+        </div>
+        <h2>Historical Context</h2>
+        <div class="historical-text">
+          <p>This gold solidus was issued during the reign of Valentinian II, who became Western Roman Emperor as a child and ruled under the influence of senior co-emperors and court officials. The coin reflects the political realities of the late fourth century, when imperial legitimacy was reinforced through iconography, titulature, and dynastic representation.</p>
+        </div>
+        <button id="audio-guide" class="audio-guide-btn">
+          <span class="play-icon">▶</span>
+          <span class="audio-text">Play Audio Guide</span>
+        </button>
+      </div>
+
+      <!-- Right Panel: Options -->
+      <div id="options-panel" class="panel right-panel">
+        <h2>Options</h2>
+        <div class="option-item">
+          <label for="select-annotation">Select Annotation</label>
+          <select id="select-annotation">
+            <option value="">Choose annotation...</option>
+            <option value="mint-mark">Mint Mark</option>
+            <option value="historical-figures">Historical Figures</option>
+            <option value="inscriptions">Inscriptions</option>
+            <option value="iconography">Iconography</option>
+          </select>
+        </div>
+        <div class="option-item">
+          <label>
+            <input type="checkbox" id="lock-position" />
+            <span>Lock position</span>
+          </label>
+        </div>
+        <div class="option-item">
+          <label>
+            <input type="checkbox" id="autospin" />
+            <span>Auto rotation</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3D Canvas Container -->
+      <div id="canvas-container"></div>
+
+      <!-- Edit Modal -->
+      <div id="edit-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <h3 id="modal-title">Edit Annotation</h3>
+          <div class="form-group">
+            <label>Label:</label>
+            <input type="text" id="edit-label" placeholder="Enter annotation name" />
+          </div>
+          <div class="form-group">
+            <label>Color:</label>
+            <input type="color" id="edit-color" value="#ffffff" />
+          </div>
+          <div class="form-group">
+            <label>Shape:</label>
+            <select id="edit-shape">
+              <option value="sphere">Sphere</option>
+              <option value="cube">Cube</option>
+              <option value="cone">Cone</option>
+              <option value="cylinder">Cylinder</option>
+            </select>
+          </div>
+          <div class="drag-info">
+            <p>💡 Drag the marker in the 3D view to reposition it</p>
+          </div>
+          <div class="modal-buttons">
+            <button id="save-edit" class="primary-btn">Save</button>
+            <button id="cancel-edit" class="secondary-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
